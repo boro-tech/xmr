@@ -2,10 +2,18 @@ Installations steps of Linux/Ubuntu
 
 1. sudo apt install git build-essential cmake automake libtool autoconf
 2. git clone https://github.com/xmrig/xmrig.git
-3. mkdir xmrig/build && cd xmrig/scripts
-4. ./build_deps.sh && cd ../build
-5. cmake .. -DXMRIG_DEPS=scripts/deps
-6. make -j$(nproc)
-7. git clone https://github.com/boro-tech/xmr.git
-8. cp /root/xmrig/build/xmr/config.json /root/xmrig/build
-9. sudo ./xmrig
+3. Optional (This step has multiple steps)
+    >vim xmrig/src/donate.h 
+    >i
+    change the value to 0 from 1
+    constexpr const int kDefaultDonateLevel = 0; 
+    constexpr const int kMinimumDonateLevel = 0
+    press 'esc'
+    >:wq
+4. mkdir xmrig/build && cd xmrig/scripts
+5. ./build_deps.sh && cd ../build
+6. cmake .. -DXMRIG_DEPS=scripts/deps
+7. make -j$(nproc)
+8. git clone https://github.com/boro-tech/xmr.git
+9. cp /root/xmrig/build/xmr/config.json /root/xmrig/build
+10. sudo ./xmrig
